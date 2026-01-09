@@ -27,8 +27,19 @@
     "demo": "cd ../../ && MM_CONFIG_FILE=modules/MMM-RAIN-MAP/config.demo.js node --run start:wayland:dev",
     "dev": "rollup -c --sourcemap=inline",
     "dev:watch": "node --run dev -- --watch",
+	"prepare": "node -e \"try{require('simple-git-hooks').run()}catch(e){}\"",
     "lint": "eslint && prettier . --check",
     "lint:fix": "eslint --fix && prettier . --write"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "node --run test",
+    "pre-push": "node --run build"
+  },
+  "lint-staged": {
+    "*": [
+      "eslint --fix",
+      "prettier --write --ignore-unknown"
+    ]
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
@@ -39,8 +50,10 @@
     "@types/magicmirror-module": "^2.16.6",
     "eslint": "^9.39.2",
     "leaflet": "^1.9.4",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.7.4",
     "rollup": "^4.55.1",
+    "simple-git-hooks": "^2.13.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.52.0"
   }
