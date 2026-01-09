@@ -133,9 +133,9 @@ git pull
 
 ## Contribution and Development
 
-This module is written in TypeScript and compiled with Rollup.  
+This module is written in TypeScript and compiled with Rollup.
 The source files are located in the `/src` folder.
-Compile target files with `npm run build`.
+Compile target files with `node --run build`.
 
 Contribution for this module is welcome!
 

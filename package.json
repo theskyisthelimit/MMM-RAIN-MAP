@@ -25,7 +25,7 @@
   "scripts": {
     "build": "rollup -c && cp node_modules/leaflet/dist/leaflet.css leaflet.css",
     "dev": "rollup -c --sourcemap=inline",
-    "dev:watch": "npm run dev -- --watch",
+    "dev:watch": "node --run dev -- --watch",
     "lint": "eslint && prettier . --check",
     "lint:fix": "eslint --fix && prettier . --write"
   },
