@@ -163,6 +163,12 @@ Module.register<Config>('MMM-RAIN-MAP', {
   },
 
   play() {
+    // Clear any existing timer to prevent multiple timers running in parallel
+    // (can happen when module is shown/hidden by carousel)
+    if (this.runtimeData.animationTimer) {
+      clearTimeout(this.runtimeData.animationTimer)
+    }
+
     let extraDelay = 0
     if (this.runtimeData.animationPosition === this.runtimeData.timeframes.length - 1) {
       extraDelay = this.config.extraDelayLastFrameMs
