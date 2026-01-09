@@ -8,7 +8,7 @@ export default defineConfig(
   tseslint.configs.strict,
   tseslint.configs.stylistic,
   {
-    ignores: ['MMM-RAIN-MAP.js']
+    ignores: ['MMM-RAIN-MAP.js', 'config.demo.js']
   },
   {
     rules: {
