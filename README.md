@@ -144,3 +144,11 @@ Contribution for this module is welcome!
 - Thanks to all supporters who gave a small [donation](https://www.buymeacoffee.com/jalibu) out of gratitude for my work.
 - All testers for their feedback.
 - [MMM-RAIN-RADAR by jojoduquartier](https://github.com/jojoduquartier/MMM-RAIN-RADAR) for inspiration.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+
+## Changelog
+
+All notable changes to this project will be documented in the [CHANGELOG.md](CHANGELOG.md) file.

@@ -1,6 +1,32 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+## [2.10.1](https://github.com/jalibu/MMM-RAIN-MAP/compare/v2.10.0...v2.10.1) (2026-01-09)
+
+
+### Fixed
+
+* prevent animation speed increase with carousel modules ([66bc8e3](https://github.com/jalibu/MMM-RAIN-MAP/commit/66bc8e3909c838ace2f4ab0414bf19dae384eae3)), closes [#54](https://github.com/jalibu/MMM-RAIN-MAP/issues/54)
+
+
+### Documentation
+
+* add Code of Conduct file to promote community guidelines ([5f74912](https://github.com/jalibu/MMM-RAIN-MAP/commit/5f74912a50249d008966fbeaef0ec29c5ac6ebe4))
+
+
+### Chores
+
+* add changelog configuration and release script ([6f5d22f](https://github.com/jalibu/MMM-RAIN-MAP/commit/6f5d22fd81ccc2a2162b7c3f690214eb70977d99))
+* add demo config ([fc4a7c0](https://github.com/jalibu/MMM-RAIN-MAP/commit/fc4a7c00011a1157f4f2f166ef9c2842e4fc3970))
+* add lint-staged and simple-git-hooks for pre-commit linting ([70f2581](https://github.com/jalibu/MMM-RAIN-MAP/commit/70f25810239626a4152a0de74f0c9aaebe608798))
+* update devDependencies ([0ed0e2a](https://github.com/jalibu/MMM-RAIN-MAP/commit/0ed0e2a9065322f1a6f2907640267ae028b41394))
+* update npm script commands to use 'node --run' ([e45e4cd](https://github.com/jalibu/MMM-RAIN-MAP/commit/e45e4cda7c1c160daffc8f103a7e2c3d6272a864))
+
+
+### Build System
+
+* change lint job to use ubuntu-slim for reduced image size ([8991f40](https://github.com/jalibu/MMM-RAIN-MAP/commit/8991f40703828c6baa7288e70e320fa311b2b275))
 
 ## [2.9.0] - 2023-11-16
 
