@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.11.1](https://github.com/jalibu/MMM-RAIN-MAP/compare/v2.11.0...v2.11.1) (2026-02-03)
+
+
+### Fixed
+
+* race condition with MMM-Carousel when using displayHoursBeforeRain ([05a611f](https://github.com/jalibu/MMM-RAIN-MAP/commit/05a611faad8882c41215d2d29cf7615153f770c4)), closes [#58](https://github.com/jalibu/MMM-RAIN-MAP/issues/58)
+
 ## [2.11.0](https://github.com/jalibu/MMM-RAIN-MAP/compare/v2.10.1...v2.11.0) (2026-02-03)
 
 
