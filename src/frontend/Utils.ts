@@ -36,12 +36,12 @@ export function sanitizeAndFilterFrames(
   let historyFrames = results.radar?.past || []
   let forecastFrames = results.radar?.nowcast || []
 
-  if (config.maxHistoryFrames >= 0 && historyFrames.length >= config.maxHistoryFrames) {
-    historyFrames = historyFrames.slice(-config.maxHistoryFrames)
+  if (config.maxHistoryFrames >= 0) {
+    historyFrames = config.maxHistoryFrames === 0 ? [] : historyFrames.slice(-config.maxHistoryFrames)
   }
 
-  if (config.maxForecastFrames >= 0 && forecastFrames.length >= config.maxForecastFrames) {
-    forecastFrames = forecastFrames.slice(-config.maxForecastFrames)
+  if (config.maxForecastFrames >= 0) {
+    forecastFrames = config.maxForecastFrames === 0 ? [] : forecastFrames.slice(-config.maxForecastFrames)
   }
 
   return { historyFrames, forecastFrames }
