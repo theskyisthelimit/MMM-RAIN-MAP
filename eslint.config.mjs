@@ -14,5 +14,19 @@ export default defineConfig(
     rules: {
       '@typescript-eslint/no-extraneous-class': 'off'
     }
+  },
+  {
+    files: ['tests/**/*.test.js'],
+    languageOptions: {
+      globals: {
+        global: 'writable',
+        require: 'readonly'
+      }
+    },
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+      '@typescript-eslint/no-empty-function': 'off',
+      'no-undef': 'off'
+    }
   }
 )

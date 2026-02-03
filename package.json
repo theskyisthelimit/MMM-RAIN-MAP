@@ -30,7 +30,9 @@
     "prepare": "node -e \"try{require('simple-git-hooks').run()}catch(e){}\"",
     "lint": "eslint && prettier . --check",
     "lint:fix": "eslint --fix && prettier . --write",
-    "release": "commit-and-tag-version --commit-all --config ./changelog.config.js"
+    "release": "commit-and-tag-version --commit-all --config ./changelog.config.js",
+    "test": "node --run lint && node --run test:unit",
+    "test:unit": "node --test tests/unit/**/*.test.js"
   },
   "simple-git-hooks": {
     "pre-commit": "node --run test",
