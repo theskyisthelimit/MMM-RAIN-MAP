@@ -24,7 +24,7 @@
   "homepage": "https://github.com/jalibu/MMM-RAIN-MAP#readme",
   "scripts": {
     "build": "rollup -c && cp node_modules/leaflet/dist/leaflet.css leaflet.css",
-    "demo": "cd ../../ && MM_CONFIG_FILE=modules/MMM-RAIN-MAP/config.demo.js node --run start:wayland:dev",
+    "demo": "cd ../../ && MM_CONFIG_FILE=modules/MMM-RAIN-MAP/config.demo.js node --run start:dev",
     "dev": "rollup -c --sourcemap=inline",
     "dev:watch": "node --run dev -- --watch",
     "prepare": "node -e \"try{require('simple-git-hooks').run()}catch(e){}\"",
