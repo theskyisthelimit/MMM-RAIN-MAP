@@ -7,10 +7,10 @@ import { Config } from '../types/Config'
 
 Module.register<Config>('MMM-RAIN-MAP', {
   defaults: {
-    animationSpeedMs: 400,
+    animationSpeedMs: 800,
     colorizeTime: true,
     colorScheme: 2,
-    defaultZoomLevel: 8,
+    defaultZoomLevel: 6,
     displayClockSymbol: true,
     displayTime: true,
     displayTimeline: true,
@@ -18,27 +18,27 @@ Module.register<Config>('MMM-RAIN-MAP', {
     invertColors: false,
     substitudeModules: [],
     extraDelayLastFrameMs: 2000,
-    extraDelayCurrentFrameMs: 2000,
+    extraDelayCurrentFrameMs: 5000,
     markers: [
       { lat: 49.41, lng: 8.717, color: 'red' },
       { lat: 48.856, lng: 2.35, color: 'green' }
     ],
     mapPositions: [
-      { lat: 49.41, lng: 8.717, zoom: 9, loops: 1 },
-      { lat: 49.41, lng: 8.717, zoom: 6, loops: 2 },
-      { lat: 48.856, lng: 2.35, zoom: 6, loops: 1 },
-      { lat: 48.856, lng: 2.35, zoom: 9, loops: 2 },
-      { lat: 49.15, lng: 6.154, zoom: 5, loops: 2 }
+      { lat: 49.41, lng: 8.717, zoom: 7, loops: 1 },
+      { lat: 49.41, lng: 8.717, zoom: 5, loops: 2 },
+      { lat: 48.856, lng: 2.35, zoom: 5, loops: 1 },
+      { lat: 48.856, lng: 2.35, zoom: 7, loops: 2 },
+      { lat: 49.15, lng: 6.154, zoom: 4, loops: 2 }
     ],
 
     mapUrl: 'https://a.tile.openstreetmap.de/{z}/{x}/{y}.png',
     mapHeight: '420px',
     mapWidth: '420px',
-    maxHistoryFrames: -1,
-    maxForecastFrames: -1,
+    maxHistoryFrames: 6,
+    maxForecastFrames: 2,
     timeFormat: config.timeFormat || 24,
     timezone: null,
-    updateIntervalInSeconds: 300
+    updateIntervalInSeconds: 600
   },
 
   /**
@@ -58,6 +58,8 @@ Module.register<Config>('MMM-RAIN-MAP', {
    * @property {HTMLSpanElement} [timelineDiv] - Timeline background element
    * @property {Array<{time: number, path: string}>} timeframes - Radar frame data from API
    * @property {number} [percentPerFrame] - Timeline percentage per frame
+   * @property {number} retryCount - Number of consecutive failed API requests
+   * @property {number} nextRetryDelay - Delay in ms before next retry attempt
    */
   runtimeData: {
     animationPosition: 0,
@@ -71,7 +73,9 @@ Module.register<Config>('MMM-RAIN-MAP', {
     loopNumber: 1,
     radarLayers: null,
     timeDiv: null,
-    timeframes: []
+    timeframes: [],
+    retryCount: 0,
+    nextRetryDelay: 0
   },
 
   getStyles() {
@@ -257,6 +261,14 @@ Module.register<Config>('MMM-RAIN-MAP', {
   },
 
   async loadData() {
+    // Apply exponential backoff if previous requests failed
+    if (this.runtimeData.nextRetryDelay > 0) {
+      Log.log(
+        `Waiting ${this.runtimeData.nextRetryDelay}ms before retrying API request (attempt ${this.runtimeData.retryCount + 1})`
+      )
+      await new Promise((resolve) => setTimeout(resolve, this.runtimeData.nextRetryDelay))
+    }
+
     // Abort any pending fetch
     this.runtimeData.abortController?.abort()
     this.runtimeData.abortController = new AbortController()
@@ -267,9 +279,30 @@ Module.register<Config>('MMM-RAIN-MAP', {
       })
 
       if (!response.ok) {
+        // Handle rate limiting with exponential backoff
+        if (response.status === 429) {
+          this.runtimeData.retryCount++
+          const maxRetries = 5
+          if (this.runtimeData.retryCount <= maxRetries) {
+            // Exponential backoff: 1s, 2s, 4s, 8s, 16s
+            this.runtimeData.nextRetryDelay = Math.min(1000 * Math.pow(2, this.runtimeData.retryCount - 1), 30000)
+            Log.warn(
+              `Rate limited (429). Retry ${this.runtimeData.retryCount}/${maxRetries} in ${this.runtimeData.nextRetryDelay}ms`
+            )
+            return
+          } else {
+            Log.error('Max retries exceeded for rate limiting. Stopping further attempts.')
+            this.runtimeData.nextRetryDelay = 60000 // Wait 1 minute before trying again
+            return
+          }
+        }
         Log.error('Error fetching RainViewer timeframes', response.statusText)
         return
       }
+
+      // Success - reset retry counters
+      this.runtimeData.retryCount = 0
+      this.runtimeData.nextRetryDelay = 0
 
       const results = await response.json()
 

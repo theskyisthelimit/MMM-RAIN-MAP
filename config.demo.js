@@ -30,7 +30,7 @@ let config = {
       module: 'MMM-RAIN-MAP',
       position: 'top_left',
       config: {
-        animationSpeedMs: 400,
+        animationSpeedMs: 800,
         colorScheme: 2,
         colorizeTime: true,
         defaultZoomLevel: 8,
@@ -38,27 +38,27 @@ let config = {
         displayTimeline: true,
         displayClockSymbol: true,
         displayHoursBeforeRain: -1,
-        extraDelayLastFrameMs: 1000,
-        extraDelayCurrentFrameMs: 3000,
+        extraDelayLastFrameMs: 2000,
+        extraDelayCurrentFrameMs: 5000,
         invertColors: false,
         markers: [
           { lat: 49.41, lng: 8.717, color: 'red' },
           { lat: 48.856, lng: 2.35, color: 'green' }
         ],
         mapPositions: [
-          { lat: 49.41, lng: 8.717, zoom: 9, loops: 1 },
-          { lat: 49.41, lng: 8.717, zoom: 6, loops: 2 },
-          { lat: 48.856, lng: 2.35, zoom: 6, loops: 1 },
-          { lat: 48.856, lng: 2.35, zoom: 9, loops: 2 },
-          { lat: 49.15, lng: 6.154, zoom: 5, loops: 2 }
+          { lat: 49.41, lng: 8.717, zoom: 7, loops: 1 },
+          { lat: 49.41, lng: 8.717, zoom: 5, loops: 2 },
+          { lat: 48.856, lng: 2.35, zoom: 5, loops: 1 },
+          { lat: 48.856, lng: 2.35, zoom: 7, loops: 2 },
+          { lat: 49.15, lng: 6.154, zoom: 4, loops: 2 }
         ],
         mapUrl: 'https://a.tile.openstreetmap.de/{z}/{x}/{y}.png',
         mapHeight: '420px', // must be a pixel value (no percent)
         mapWidth: '420px', // must be a pixel value (no percent)
-        maxHistoryFrames: -1,
-        maxForecastFrames: -1,
+        maxHistoryFrames: 6,
+        maxForecastFrames: 2,
         substitudeModules: [],
-        updateIntervalInSeconds: 300
+        updateIntervalInSeconds: 600
       }
     }
   ]
