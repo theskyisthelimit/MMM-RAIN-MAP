@@ -61,6 +61,7 @@ Module.register<Config>('MMM-RAIN-MAP', {
    * @property {number} [percentPerFrame] - Timeline percentage per frame
    * @property {number} retryCount - Number of consecutive failed API requests
    * @property {number} nextRetryDelay - Delay in ms before next retry attempt
+   * @property {boolean} isHiddenDueToNoRain - Tracks if module is hidden because no rain is expected
    */
   runtimeData: {
     animationPosition: 0,
@@ -76,7 +77,8 @@ Module.register<Config>('MMM-RAIN-MAP', {
     timeDiv: null,
     timeframes: [],
     retryCount: 0,
-    nextRetryDelay: 0
+    nextRetryDelay: 0,
+    isHiddenDueToNoRain: false
   },
 
   getStyles() {
@@ -428,16 +430,28 @@ Module.register<Config>('MMM-RAIN-MAP', {
 
   handleCurrentWeatherCondition(currentCondition: string) {
     if (currentCondition && rainConditions.some((condition) => currentCondition.includes(condition))) {
-      if (!this.runtimeData.animationTimer) {
+      // Rain detected - show module if it was hidden due to no rain
+      if (this.runtimeData.isHiddenDueToNoRain) {
+        this.runtimeData.isHiddenDueToNoRain = false
         changeSubstituteModuleVisibility(false, this.config)
         this.show(300, undefined, { lockString: this.identifier })
-        this.play()
+        // Restart animation if not running
+        if (!this.runtimeData.animationTimer) {
+          this.play()
+        }
       }
-    } else if (this.runtimeData.animationTimer) {
-      this.hide(300, undefined, { lockString: this.identifier })
-      clearTimeout(this.runtimeData.animationTimer)
-      this.runtimeData.animationTimer = null
-      changeSubstituteModuleVisibility(true, this.config)
+    } else {
+      // No rain - hide module if currently shown
+      if (!this.runtimeData.isHiddenDueToNoRain) {
+        this.runtimeData.isHiddenDueToNoRain = true
+        this.hide(300, undefined, { lockString: this.identifier })
+        // Stop animation to save resources
+        if (this.runtimeData.animationTimer) {
+          clearTimeout(this.runtimeData.animationTimer)
+          this.runtimeData.animationTimer = null
+        }
+        changeSubstituteModuleVisibility(true, this.config)
+      }
     }
   }
 })
