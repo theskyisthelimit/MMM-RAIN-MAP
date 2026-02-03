@@ -1,6 +1,6 @@
 /*! *****************************************************************************
   mmm-rain-map
-  Version 2.10.1
+  Version 2.11.0
 
   A Rain Radar Map based on the Rainviewer API for the MagicMirror² platform.
   Please submit bugs at https://github.com/jalibu/MMM-RAIN-MAP/issues

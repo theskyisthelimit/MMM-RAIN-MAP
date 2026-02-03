@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.11.0](https://github.com/jalibu/MMM-RAIN-MAP/compare/v2.10.1...v2.11.0) (2026-02-03)
+
+
+### Added
+
+* optimize defaults and add exponential backoff for API rate limiting ([f3c9854](https://github.com/jalibu/MMM-RAIN-MAP/commit/f3c98549500af0f000958fcb8e51c70cc07b71bf))
+
+
+### Fixed
+
+* sanitizeAndFilterFrames returns empty array when maxFrames is 0 ([61ba860](https://github.com/jalibu/MMM-RAIN-MAP/commit/61ba86010ff65bb3ef70f2078cae19121b1abbd8))
+
+
+### Chores
+
+* add CHANGELOG.md to .prettierignore ([070579a](https://github.com/jalibu/MMM-RAIN-MAP/commit/070579ae3471d93fa7c3bb272952b27dff99ecf1))
+* simplify demo script command in package.json ([bb32a0d](https://github.com/jalibu/MMM-RAIN-MAP/commit/bb32a0df31201a997a005293dad52050909f5f7e))
+* update devDependencies ([81fc80c](https://github.com/jalibu/MMM-RAIN-MAP/commit/81fc80cdd44ac00d2a8a0b497ad04728b4edba0a))
+* update git hooks to use lint-staged for pre-commit ([bbfefc5](https://github.com/jalibu/MMM-RAIN-MAP/commit/bbfefc5ec8cb1e1b2081c28d10f7702ce4cd82e7))
+
+
+### Code Refactoring
+
+* replace any types with concrete TypeScript interfaces ([1b65796](https://github.com/jalibu/MMM-RAIN-MAP/commit/1b65796ad8c172d1dc350d7c960fe49d20a4a73f))
+
+
+### Tests
+
+* add unit tests with node:test for configuration and utilities ([e5e34e5](https://github.com/jalibu/MMM-RAIN-MAP/commit/e5e34e542e4d66ec7671409299a45d421b153ec7))
+
 ## [2.10.1](https://github.com/jalibu/MMM-RAIN-MAP/compare/v2.10.0...v2.10.1) (2026-01-09)
 
 
