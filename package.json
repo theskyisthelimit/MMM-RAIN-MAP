@@ -35,8 +35,8 @@
     "test:unit": "node --test tests/unit/**/*.test.js"
   },
   "simple-git-hooks": {
-    "pre-commit": "node --run test",
-    "pre-push": "node --run build"
+    "pre-commit": "npx lint-staged",
+    "pre-push": "node --run test && node --run build"
   },
   "lint-staged": {
     "*": [
