@@ -1,9 +1,9 @@
 import * as Log from 'logger'
 import { Config, Marker } from '../types/Config'
+import { MMGlobal } from '../types/MagicMirror'
 
 // Global or injected variable declarations
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-declare const MM: any
+declare const MM: MMGlobal
 
 const supportedIconColors = ['black', 'blue', 'gold', 'green', 'grey', 'orange', 'red', 'violet', 'yellow'] as const
 

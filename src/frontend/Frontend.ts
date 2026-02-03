@@ -2,6 +2,7 @@ import * as L from 'leaflet'
 import * as Log from 'logger'
 import { changeSubstituteModuleVisibility, getIconColor, rainConditions, sanitizeAndFilterFrames } from './Utils'
 import { Config } from '../types/Config'
+import { WeatherPayload, CurrentWeatherPayload, OpenWeatherPayload } from '../types/MagicMirror'
 
 // Global or injected variable declarations
 
@@ -381,30 +382,31 @@ Module.register<Config>('MMM-RAIN-MAP', {
     this.play()
   },
 
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  notificationReceived(notificationIdentifier: string, payload: any) {
+  notificationReceived(
+    notificationIdentifier: string,
+    payload: WeatherPayload | CurrentWeatherPayload | OpenWeatherPayload
+  ) {
     if (this.config.displayHoursBeforeRain >= 0) {
       if (notificationIdentifier === 'DOM_OBJECTS_CREATED') {
         changeSubstituteModuleVisibility(false, this.config)
       }
       if (this.config.displayHoursBeforeRain === 0) {
         if (notificationIdentifier === 'OPENWEATHER_FORECAST_WEATHER_UPDATE') {
-          const currentCondition = payload.current?.weather[0]?.icon
+          const currentCondition = (payload as OpenWeatherPayload).current?.weather?.[0]?.icon
           this.handleCurrentWeatherCondition(currentCondition)
         } else if (notificationIdentifier === 'CURRENTWEATHER_TYPE') {
-          const currentCondition = payload.type
+          const currentCondition = (payload as CurrentWeatherPayload).type
           this.handleCurrentWeatherCondition(currentCondition)
         }
       } else if (this.config.displayHoursBeforeRain > 0) {
         if (notificationIdentifier === 'WEATHER_UPDATED') {
-          this.handleWeatherUpdate(payload)
+          this.handleWeatherUpdate(payload as WeatherPayload)
         }
       }
     }
   },
 
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  handleWeatherUpdate(update: any) {
+  handleWeatherUpdate(update: WeatherPayload) {
     const hourlyData = update.hourlyArray
     let closestRain = Infinity
     const now = Date.now()
