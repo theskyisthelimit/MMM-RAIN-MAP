@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.11.2](https://github.com/jalibu/MMM-RAIN-MAP/compare/v2.11.1...v2.11.2) (2026-02-09)
+
+
+### Fixed
+
+* Use correct slice for forecast frames ([07c0bf4](https://github.com/jalibu/MMM-RAIN-MAP/commit/07c0bf4283cbea034996443a6fe3ed70cd449256)), closes [#59](https://github.com/jalibu/MMM-RAIN-MAP/issues/59)
+
+
+### Chores
+
+* update devDependencies ([9295229](https://github.com/jalibu/MMM-RAIN-MAP/commit/9295229f62741f0cfa60f82459335988c5867b70))
+
 ## [2.11.1](https://github.com/jalibu/MMM-RAIN-MAP/compare/v2.11.0...v2.11.1) (2026-02-03)
 
 
