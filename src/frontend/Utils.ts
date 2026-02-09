@@ -41,7 +41,7 @@ export function sanitizeAndFilterFrames(
   }
 
   if (config.maxForecastFrames >= 0) {
-    forecastFrames = config.maxForecastFrames === 0 ? [] : forecastFrames.slice(-config.maxForecastFrames)
+    forecastFrames = config.maxForecastFrames === 0 ? [] : forecastFrames.slice(0, config.maxForecastFrames)
   }
 
   return { historyFrames, forecastFrames }
