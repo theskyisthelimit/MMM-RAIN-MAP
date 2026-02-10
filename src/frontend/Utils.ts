@@ -51,6 +51,14 @@ export function sanitizeAndFilterFrames(
     forecastFrames = config.maxForecastFrames === 0 ? [] : forecastFrames.slice(0, config.maxForecastFrames)
   }
 
+  // Warn if forecast was requested but none available
+  if (config.maxForecastFrames > 0 && forecastFrames.length === 0) {
+    Log.warn(
+      'Forecast frames requested but RainViewer API returned no forecast data. ' +
+        'The free API no longer provides forecast/nowcast. Consider setting maxForecastFrames to 0.'
+    )
+  }
+
   Log.log(`After filtering: ${historyFrames.length} history frames, ${forecastFrames.length} forecast frames (maxForecastFrames: ${config.maxForecastFrames})`)
 
   return { historyFrames, forecastFrames }

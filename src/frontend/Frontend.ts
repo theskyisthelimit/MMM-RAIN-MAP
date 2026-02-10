@@ -36,7 +36,7 @@ Module.register<Config>('MMM-RAIN-MAP', {
     mapHeight: '420px',
     mapWidth: '420px',
     maxHistoryFrames: 6,
-    maxForecastFrames: 2,
+    maxForecastFrames: 0, // Forecast currently unavailable in RainViewer free API
     timeFormat: config.timeFormat || 24,
     timezone: null,
     updateIntervalInSeconds: 600
@@ -158,6 +158,16 @@ Module.register<Config>('MMM-RAIN-MAP', {
 
   start() {
     this.runtimeData.radarLayers = new Map()
+
+    // Warn about forecast unavailability once at startup
+    if (this.config.maxForecastFrames > 0) {
+      Log.warn(
+        'MMM-RAIN-MAP: Forecast frames are currently unavailable. ' +
+          'RainViewer\'s free API no longer provides forecast/nowcast data. ' +
+          'Set maxForecastFrames to 0 to suppress this warning.'
+      )
+    }
+
     this.scheduleUpdate()
     this.play()
   },
