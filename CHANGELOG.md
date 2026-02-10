@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.0](https://github.com/jalibu/MMM-RAIN-MAP/compare/v2.11.3...v3.0.0) (2026-02-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* update forecast frame handling after RainViewer has removed forecast/nowcast data from their free public API
+
+### Fixed
+
+* update forecast frame handling after RainViewer has removed forecast/nowcast data from their free public API ([693e16b](https://github.com/jalibu/MMM-RAIN-MAP/commit/693e16b5d3760c0b9f28bbad4cdd3ce4dfa6d363))
+
 ## [2.11.3](https://github.com/jalibu/MMM-RAIN-MAP/compare/v2.11.2...v2.11.3) (2026-02-10)
 
 
