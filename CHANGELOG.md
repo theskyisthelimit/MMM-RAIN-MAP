@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.11.3](https://github.com/jalibu/MMM-RAIN-MAP/compare/v2.11.2...v2.11.3) (2026-02-10)
+
+
+### Fixed
+
+* Correct types and add debug logging for forecast frames ([ad7afc7](https://github.com/jalibu/MMM-RAIN-MAP/commit/ad7afc76995b74e47dedf4a99354485ed0c4f2a0)), closes [#59](https://github.com/jalibu/MMM-RAIN-MAP/issues/59)
+
 ## [2.11.2](https://github.com/jalibu/MMM-RAIN-MAP/compare/v2.11.1...v2.11.2) (2026-02-09)
 
 
