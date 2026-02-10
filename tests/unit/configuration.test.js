@@ -62,8 +62,8 @@ describe('MMM-RAIN-MAP Configuration', () => {
       assert.equal(defaults.maxHistoryFrames, 6)
     })
 
-    test('maxForecastFrames is set to 2 (optimized for API load)', () => {
-      assert.equal(defaults.maxForecastFrames, 2)
+    test('maxForecastFrames is set to 0 (forecast unavailable in free API)', () => {
+      assert.equal(defaults.maxForecastFrames, 0)
     })
 
     test('updateIntervalInSeconds is set to 600 (aligned with API)', () => {
