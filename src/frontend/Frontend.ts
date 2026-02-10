@@ -326,8 +326,9 @@ Module.register<Config>('MMM-RAIN-MAP', {
       this.runtimeData.timeframes = [...historyFrames, ...forecastFrames]
 
       // Clear old radar layers
-      this.runtimeData.map.eachLayer((layer) => {
-        if (layer instanceof L.TileLayer && layer._url.includes('rainviewer.com')) {
+      this.runtimeData.map.eachLayer((layer: L.Layer) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        if (layer instanceof L.TileLayer && (layer as any)._url.includes('rainviewer.com')) {
           this.runtimeData.map.removeLayer(layer)
         }
       })
@@ -420,6 +421,9 @@ Module.register<Config>('MMM-RAIN-MAP', {
 
   handleWeatherUpdate(update: WeatherPayload) {
     const hourlyData = update.hourlyArray
+    if (!hourlyData) {
+      return
+    }
     let closestRain = Infinity
     const now = Date.now()
     for (const entry of hourlyData) {

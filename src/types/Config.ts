@@ -19,7 +19,7 @@ export interface Config {
   maxHistoryFrames: number
   maxForecastFrames: number
   timeFormat: number
-  timezone: string
+  timezone: string | null
   updateIntervalInSeconds: number
 }
 
