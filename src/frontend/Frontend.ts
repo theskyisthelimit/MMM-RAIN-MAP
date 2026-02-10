@@ -163,7 +163,7 @@ Module.register<Config>('MMM-RAIN-MAP', {
     if (this.config.maxForecastFrames > 0) {
       Log.warn(
         'MMM-RAIN-MAP: Forecast frames are currently unavailable. ' +
-          'RainViewer\'s free API no longer provides forecast/nowcast data. ' +
+          "RainViewer's free API no longer provides forecast/nowcast data. " +
           'Set maxForecastFrames to 0 to suppress this warning.'
       )
     }

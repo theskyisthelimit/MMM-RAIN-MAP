@@ -59,7 +59,9 @@ export function sanitizeAndFilterFrames(
     )
   }
 
-  Log.log(`After filtering: ${historyFrames.length} history frames, ${forecastFrames.length} forecast frames (maxForecastFrames: ${config.maxForecastFrames})`)
+  Log.log(
+    `After filtering: ${historyFrames.length} history frames, ${forecastFrames.length} forecast frames (maxForecastFrames: ${config.maxForecastFrames})`
+  )
 
   return { historyFrames, forecastFrames }
 }
