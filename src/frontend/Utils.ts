@@ -41,8 +41,6 @@ export function sanitizeAndFilterFrames(
   let historyFrames = results.radar?.past || []
   let forecastFrames = results.radar?.nowcast || []
 
-  Log.log(`RainViewer API returned ${historyFrames.length} history frames and ${forecastFrames.length} forecast frames`)
-
   if (config.maxHistoryFrames >= 0) {
     historyFrames = config.maxHistoryFrames === 0 ? [] : historyFrames.slice(-config.maxHistoryFrames)
   }
@@ -58,10 +56,6 @@ export function sanitizeAndFilterFrames(
         'The free API no longer provides forecast/nowcast. Consider setting maxForecastFrames to 0.'
     )
   }
-
-  Log.log(
-    `After filtering: ${historyFrames.length} history frames, ${forecastFrames.length} forecast frames (maxForecastFrames: ${config.maxForecastFrames})`
-  )
 
   return { historyFrames, forecastFrames }
 }
