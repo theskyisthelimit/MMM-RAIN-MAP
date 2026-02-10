@@ -29,12 +29,19 @@ export function getIconColor(marker: Marker): string {
     : 'red'
 }
 
+export interface RainFrame {
+  time: number
+  path: string
+}
+
 export function sanitizeAndFilterFrames(
-  results: { radar: { past: string[]; nowcast: string[] } },
+  results: { radar: { past: RainFrame[]; nowcast: RainFrame[] } },
   config: Config
-): { historyFrames: string[]; forecastFrames: string[] } {
+): { historyFrames: RainFrame[]; forecastFrames: RainFrame[] } {
   let historyFrames = results.radar?.past || []
   let forecastFrames = results.radar?.nowcast || []
+
+  Log.log(`RainViewer API returned ${historyFrames.length} history frames and ${forecastFrames.length} forecast frames`)
 
   if (config.maxHistoryFrames >= 0) {
     historyFrames = config.maxHistoryFrames === 0 ? [] : historyFrames.slice(-config.maxHistoryFrames)
@@ -43,6 +50,8 @@ export function sanitizeAndFilterFrames(
   if (config.maxForecastFrames >= 0) {
     forecastFrames = config.maxForecastFrames === 0 ? [] : forecastFrames.slice(0, config.maxForecastFrames)
   }
+
+  Log.log(`After filtering: ${historyFrames.length} history frames, ${forecastFrames.length} forecast frames (maxForecastFrames: ${config.maxForecastFrames})`)
 
   return { historyFrames, forecastFrames }
 }
