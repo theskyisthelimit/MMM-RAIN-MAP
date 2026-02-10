@@ -5,7 +5,7 @@
  * Usage: node --run demo
  */
 
-let config = {
+const config = {
   port: 8080,
   address: 'localhost',
   language: 'de',
@@ -56,7 +56,6 @@ let config = {
         mapHeight: '420px', // must be a pixel value (no percent)
         mapWidth: '420px', // must be a pixel value (no percent)
         maxHistoryFrames: 6,
-        maxForecastFrames: 2,
         substitudeModules: [],
         updateIntervalInSeconds: 600
       }
