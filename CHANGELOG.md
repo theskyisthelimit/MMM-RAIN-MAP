@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.1](https://github.com/jalibu/MMM-RAIN-MAP/compare/v3.0.0...v3.0.1) (2026-02-10)
+
+
+### Documentation
+
+* clean up forecast references in README ([72e9fd5](https://github.com/jalibu/MMM-RAIN-MAP/commit/72e9fd5131351e284a73bb45b8a8888a2adc2a5e))
+* update default zoom level range in README ([8aa7f6c](https://github.com/jalibu/MMM-RAIN-MAP/commit/8aa7f6c67c9914af6d48a2e99c06484d2ac8c81a))
+
+
+### Chores
+
+* enable TypeScript strict mode ([a501713](https://github.com/jalibu/MMM-RAIN-MAP/commit/a501713d0d67917ad1f1e2d7b32e24feb304f0e1))
+* format files ([f55310f](https://github.com/jalibu/MMM-RAIN-MAP/commit/f55310fc92305f330a23becaa400ae3c153bd346))
+* remove maxForecastFrames from demo config ([919579d](https://github.com/jalibu/MMM-RAIN-MAP/commit/919579d740cde1bafc2a59cd3f23c6200d437e92))
+
+
+### Code Refactoring
+
+* Remove debug logging from frame filtering ([2b86f2a](https://github.com/jalibu/MMM-RAIN-MAP/commit/2b86f2a591249a0530a5cad5d32243c61936912f))
+
+
+### Tests
+
+* Update maxForecastFrames test expectation to 0 ([12a3b5b](https://github.com/jalibu/MMM-RAIN-MAP/commit/12a3b5b9a4a7a28931e283ebf0a086597d96b408))
+
 ## [3.0.0](https://github.com/jalibu/MMM-RAIN-MAP/compare/v2.11.3...v3.0.0) (2026-02-10)
 
 
