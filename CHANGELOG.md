@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.2](https://github.com/jalibu/MMM-RAIN-MAP/compare/v3.0.1...v3.0.2) (2026-02-14)
+
+
+### Chores
+
+* align colorScheme behavior with RainViewer free-tier limits ([577882f](https://github.com/jalibu/MMM-RAIN-MAP/commit/577882f2727b026137448d46d97b3f4fb62c20c7))
+
+
+### Code Refactoring
+
+* add substituteModules alias with deprecated key fallback ([344d110](https://github.com/jalibu/MMM-RAIN-MAP/commit/344d11051cdb615832fa0338dc090e557e4330e8))
+
+
+### Build System
+
+* avoid false positives in third-party module lint scanner ([8631d45](https://github.com/jalibu/MMM-RAIN-MAP/commit/8631d452eee0f5946907c2644a9a52b6c22206a4))
+
+
+### Continuous Integration
+
+* add build step to catch TypeScript/Rollup regressions ([7333d77](https://github.com/jalibu/MMM-RAIN-MAP/commit/7333d77677b3f6cf41ca2e92f6a34c0d635bcee9))
+
 ## [3.0.1](https://github.com/jalibu/MMM-RAIN-MAP/compare/v3.0.0...v3.0.1) (2026-02-10)
 
 
