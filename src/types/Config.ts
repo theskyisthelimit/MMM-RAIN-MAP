@@ -7,7 +7,8 @@ export interface Config {
   displayTime: boolean
   displayTimeline: boolean
   displayHoursBeforeRain: number
-  substitudeModules: string[]
+  substituteModules?: string[]
+  substitudeModules?: string[]
   extraDelayLastFrameMs: number
   extraDelayCurrentFrameMs: number
   invertColors: boolean

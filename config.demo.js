@@ -56,7 +56,7 @@ const config = {
         mapHeight: '420px', // must be a pixel value (no percent)
         mapWidth: '420px', // must be a pixel value (no percent)
         maxHistoryFrames: 6,
-        substitudeModules: [],
+        substituteModules: [],
         updateIntervalInSeconds: 600
       }
     }

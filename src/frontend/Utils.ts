@@ -61,9 +61,10 @@ export function sanitizeAndFilterFrames(
 }
 
 export function changeSubstituteModuleVisibility(show: boolean, config: Config): void {
-  if (config.substitudeModules) {
+  const substituteModules = config.substituteModules || config.substitudeModules || []
+  if (substituteModules.length > 0) {
     try {
-      for (const curr of config.substitudeModules) {
+      for (const curr of substituteModules) {
         const substituteModule = MM.getModules().find((module: { name: string }) => module.name === curr)
         if (!substituteModule) {
           Log.warn(`No substitute module found with name ${curr}`)

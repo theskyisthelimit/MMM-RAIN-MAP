@@ -17,7 +17,8 @@ Module.register<Config>('MMM-RAIN-MAP', {
     displayTimeline: true,
     displayHoursBeforeRain: -1,
     invertColors: false,
-    substitudeModules: [],
+    substituteModules: [],
+    substitudeModules: [], // Deprecated - will be removed in future versions, use substituteModules instead.
     extraDelayLastFrameMs: 2000,
     extraDelayCurrentFrameMs: 5000,
     markers: [
@@ -158,6 +159,15 @@ Module.register<Config>('MMM-RAIN-MAP', {
 
   start() {
     this.runtimeData.radarLayers = new Map()
+
+    if ((this.config.substitudeModules?.length || 0) > 0 && (this.config.substituteModules?.length || 0) === 0) {
+      Log.warn('MMM-RAIN-MAP: config key "substitudeModules" is deprecated. Please use "substituteModules" instead.')
+    }
+    if ((this.config.substitudeModules?.length || 0) > 0 && (this.config.substituteModules?.length || 0) > 0) {
+      Log.warn(
+        'MMM-RAIN-MAP: Both "substituteModules" and deprecated "substitudeModules" are set. Using "substituteModules".'
+      )
+    }
 
     const configuredColorScheme = this.config.colorScheme
     if (configuredColorScheme !== 2) {
