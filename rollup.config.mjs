@@ -4,7 +4,8 @@ import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import pkg from './package.json' with { type: 'json' }
 
-const bannerText = `/*! *****************************************************************************
+const bannerText = `/* eslint-disable */
+/*! *****************************************************************************
   ${pkg.name}
   Version ${pkg.version}
 
@@ -22,7 +23,16 @@ const bannerText = `/*! ********************************************************
 export default {
   input: './src/frontend/Frontend.ts',
   external: ['logger'],
-  plugins: [typescript({ module: 'ESNext' }), nodeResolve(), commonjs(), terser()],
+  plugins: [
+    typescript({ module: 'ESNext' }),
+    nodeResolve(),
+    commonjs(),
+    terser({
+      format: {
+        comments: /eslint-disable|^!/
+      }
+    })
+  ],
   output: {
     banner: bannerText,
     file: `./${pkg.main}`,
