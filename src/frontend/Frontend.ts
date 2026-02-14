@@ -159,6 +159,14 @@ Module.register<Config>('MMM-RAIN-MAP', {
   start() {
     this.runtimeData.radarLayers = new Map()
 
+    const configuredColorScheme = this.config.colorScheme
+    if (configuredColorScheme !== 2) {
+      Log.warn(
+        `MMM-RAIN-MAP: colorScheme ${configuredColorScheme} is ignored for RainViewer free API. Using colorScheme 2 (Universal Blue).`
+      )
+      this.config.colorScheme = 2
+    }
+
     // Warn about forecast unavailability once at startup
     if (this.config.maxForecastFrames > 0) {
       Log.warn(
