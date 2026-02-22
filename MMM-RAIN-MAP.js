@@ -1,7 +1,7 @@
 /* eslint-disable */
 /*! *****************************************************************************
   mmm-rain-map
-  Version 3.0.2
+  Version 3.0.3
 
   A Rain Radar Map based on the Rainviewer API for the MagicMirror² platform.
   Please submit bugs at https://github.com/jalibu/MMM-RAIN-MAP/issues

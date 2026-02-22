@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.3](https://github.com/jalibu/MMM-RAIN-MAP/compare/v3.0.2...v3.0.3) (2026-02-22)
+
+
+### Documentation
+
+* enhance README with descriptions for Marker and MapPosition objects ([f7ed50d](https://github.com/jalibu/MMM-RAIN-MAP/commit/f7ed50d46015e554ce685e88c0e79f52996fff62))
+
+
+### Chores
+
+* add "type" field to package.json ([be2a400](https://github.com/jalibu/MMM-RAIN-MAP/commit/be2a4003d33edf2573564e6fa6d30a66117353c7))
+* add tslib as devDependency ([38dae17](https://github.com/jalibu/MMM-RAIN-MAP/commit/38dae1709acfd4d63602c9cfbe44e1bf80d60f1a))
+* rename lint job to test in automated tests workflow ([0ef7a49](https://github.com/jalibu/MMM-RAIN-MAP/commit/0ef7a49dce86986cb8036aa53deb040d2c9804ff))
+* update devDependencies ([6987db6](https://github.com/jalibu/MMM-RAIN-MAP/commit/6987db6c554ca93cfc8714dcb2bee8035dbf05ae))
+
 ## [3.0.2](https://github.com/jalibu/MMM-RAIN-MAP/compare/v3.0.1...v3.0.2) (2026-02-14)
 
 
