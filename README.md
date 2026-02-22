@@ -113,6 +113,8 @@ git pull
 
 ### Marker Object
 
+Markers are **visual pin icons** placed on the map at specific coordinates. They are purely decorative and do not define the visible map area. A typical use case is marking your home and workplace so you can easily spot them while watching the rain radar.
+
 | Option  | Description                                                                                                                               |
 | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
 | `lat`   | **Required:** Marker's latitude.<br><br>**Type:** `float`                                                                                 |
@@ -120,6 +122,8 @@ git pull
 | `color` | Marker's color.<br><br>**Possible values:** `'black','blue','gold','green','grey','orange','red','violet','yellow'`<br>**Type:** `string` |
 
 ### MapPosition Object
+
+Map positions define the **visible map area** — where the map is centered and at what zoom level. The map cycles through all configured positions, staying at each one for the configured number of animation loops.
 
 | Option  | Description                                                                                                                                 |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
