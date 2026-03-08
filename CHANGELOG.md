@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.4](https://github.com/jalibu/MMM-RAIN-MAP/compare/v3.0.3...v3.0.4) (2026-03-08)
+
+
+### Fixed
+
+* fix stale radar frames by replacing eachLayer with radarLayers Map iteration ([57cc39e](https://github.com/jalibu/MMM-RAIN-MAP/commit/57cc39e44a0dee2981acd1a863032364be96ab96)), closes [#70](https://github.com/jalibu/MMM-RAIN-MAP/issues/70)
+* warn and clamp zoom levels above 7 (RainViewer API limit) ([50eb550](https://github.com/jalibu/MMM-RAIN-MAP/commit/50eb550162cb07c8330d465db67164226e1de4ce))
+
+
+### Documentation
+
+* fix MagicMirror version reference in bug report template ([0c463ef](https://github.com/jalibu/MMM-RAIN-MAP/commit/0c463ef780d5da0eea9a69bed5718e8abc2af685))
+
+
+### Chores
+
+* update devDependencies ([235377d](https://github.com/jalibu/MMM-RAIN-MAP/commit/235377deb7e7c7e7077177af5226affb84f7b4ed))
+
 ## [3.0.3](https://github.com/jalibu/MMM-RAIN-MAP/compare/v3.0.2...v3.0.3) (2026-02-22)
 
 
