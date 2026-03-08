@@ -322,7 +322,8 @@ Module.register<Config>('MMM-RAIN-MAP', {
 
     try {
       const response = await fetch('https://api.rainviewer.com/public/weather-maps.json', {
-        signal: this.runtimeData.abortController.signal
+        signal: this.runtimeData.abortController.signal,
+        cache: 'no-store'
       })
 
       if (!response.ok) {
@@ -359,14 +360,12 @@ Module.register<Config>('MMM-RAIN-MAP', {
       this.runtimeData.numForecastFrames = forecastFrames.length
       this.runtimeData.timeframes = [...historyFrames, ...forecastFrames]
 
-      // Clear old radar layers
-      this.runtimeData.map.eachLayer((layer: L.Layer) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        if (layer instanceof L.TileLayer && (layer as any)._url.includes('rainviewer.com')) {
-          this.runtimeData.map.removeLayer(layer)
-        }
-      })
-
+      // Clear old radar layers using our tracked Map to avoid the Leaflet
+      // eachLayer + removeLayer mutation bug (modifying _layers during iteration
+      // can silently skip layers, leaving old frames visible at opacity 1).
+      for (const layer of this.runtimeData.radarLayers.values()) {
+        this.runtimeData.map.removeLayer(layer)
+      }
       this.runtimeData.radarLayers.clear()
 
       // Add new radar layers
