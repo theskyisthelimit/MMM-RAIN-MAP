@@ -81,9 +81,12 @@ describe('MMM-RAIN-MAP Configuration', () => {
       assert.ok(defaults.animationSpeedMs >= 500, 'Animation should be at least 500ms to reduce tile requests')
     })
 
-    test('defaultZoomLevel is reasonable (4-8)', () => {
+    test('defaultZoomLevel is reasonable (4-7, limited by RainViewer API)', () => {
       const zoom = defaults.defaultZoomLevel
-      assert.ok(zoom >= 4 && zoom <= 8, `Zoom level ${zoom} should be between 4-8 to balance detail and API load`)
+      assert.ok(
+        zoom >= 4 && zoom <= 7,
+        `Zoom level ${zoom} should be between 4-7 (RainViewer radar tiles do not support zoom > 7)`
+      )
     })
 
     test('updateIntervalInSeconds is at least 5 minutes', () => {

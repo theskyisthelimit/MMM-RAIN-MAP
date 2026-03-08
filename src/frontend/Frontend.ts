@@ -186,6 +186,22 @@ Module.register<Config>('MMM-RAIN-MAP', {
       )
     }
 
+    const maxZoom = 7
+    if (this.config.defaultZoomLevel > maxZoom) {
+      Log.warn(
+        `MMM-RAIN-MAP: defaultZoomLevel ${this.config.defaultZoomLevel} exceeds the maximum zoom level supported by the RainViewer radar tile API (${maxZoom}). Clamping to ${maxZoom}.`
+      )
+      this.config.defaultZoomLevel = maxZoom
+    }
+    for (const position of this.config.mapPositions) {
+      if (position.zoom !== undefined && position.zoom > maxZoom) {
+        Log.warn(
+          `MMM-RAIN-MAP: zoom ${position.zoom} in mapPositions exceeds the maximum zoom level supported by the RainViewer radar tile API (${maxZoom}). Clamping to ${maxZoom}.`
+        )
+        position.zoom = maxZoom
+      }
+    }
+
     this.scheduleUpdate()
     this.play()
   },
