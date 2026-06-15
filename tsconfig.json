@@ -1,10 +1,11 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "strict": true,
     "noUnusedLocals": true,
     "sourceMap": false,
-    "target": "es2024",
+    "target": "ESNext",
     "lib": ["DOM", "ESNext"]
   }
 }
