@@ -24,7 +24,7 @@ export default {
   input: './src/frontend/Frontend.ts',
   external: ['logger'],
   plugins: [
-    typescript({ module: 'ESNext' }),
+    typescript(),
     nodeResolve(),
     commonjs(),
     terser({

@@ -7,7 +7,10 @@
     "sourceMap": false,
     "target": "ESNext",
     "lib": ["DOM", "ESNext"],
-    "types": ["magicmirror-module"]
+    "types": ["magicmirror-module"],
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "include": ["src/**/*.ts"]
 }
