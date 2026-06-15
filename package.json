@@ -28,7 +28,7 @@
     "demo": "cd ../../ && MM_CONFIG_FILE=modules/MMM-RAIN-MAP/config.demo.js node --run start:dev",
     "dev": "rollup -c --sourcemap=inline",
     "dev:watch": "node --run dev -- --watch",
-    "prepare": "node -e \"try{require('simple-git-hooks').run()}catch(e){}\"",
+    "prepare": "simple-git-hooks || exit 0",
     "lint": "eslint && prettier . --check",
     "lint:fix": "eslint --fix && prettier . --write",
     "release": "commit-and-tag-version --commit-all --config ./changelog.config.js",
