@@ -72,7 +72,7 @@ Add the module configuration into the `MagicMirror/config/config.js` file:
         maxHistoryFrames: 6,
         substituteModules: [],
         updateIntervalInSeconds: 600,
-      }
+      },
     },
 ```
 
