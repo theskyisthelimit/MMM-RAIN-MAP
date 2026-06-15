@@ -1,32 +1,42 @@
 // @ts-check
 import eslint from '@eslint/js'
-import { defineConfig } from 'eslint/config'
+import { defineConfig, globalIgnores } from 'eslint/config'
 import tseslint from 'typescript-eslint'
 
 export default defineConfig(
-  eslint.configs.recommended,
-  tseslint.configs.strict,
-  tseslint.configs.stylistic,
+  // Build artifacts and generated files
+  globalIgnores(['MMM-RAIN-MAP.js', 'node_helper.js', 'config.demo.js', 'changelog.config.js', 'leaflet.css']),
+
+  // TypeScript source files
   {
-    ignores: ['MMM-RAIN-MAP.js', 'config.demo.js', 'changelog.config.js']
-  },
-  {
+    files: ['src/**/*.ts'],
+    extends: [eslint.configs.recommended, tseslint.configs.strict, tseslint.configs.stylistic],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        projectService: true,
+        sourceType: 'module',
+        ecmaVersion: 'latest'
+      }
+    },
     rules: {
       '@typescript-eslint/no-extraneous-class': 'off'
     }
   },
+
+  // Test files
   {
     files: ['tests/**/*.test.js'],
+    extends: [eslint.configs.recommended],
     languageOptions: {
+      sourceType: 'commonjs',
       globals: {
         global: 'writable',
-        require: 'readonly'
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly'
       }
-    },
-    rules: {
-      '@typescript-eslint/no-require-imports': 'off',
-      '@typescript-eslint/no-empty-function': 'off',
-      'no-undef': 'off'
     }
   }
 )
