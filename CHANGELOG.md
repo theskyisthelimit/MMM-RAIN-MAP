@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.5](https://github.com/jalibu/MMM-RAIN-MAP/compare/v3.0.4...v3.0.5) (2026-06-15)
+
+
+### Fixed
+
+* **map:** anchor marker and shadow to pin tip ([#82](https://github.com/jalibu/MMM-RAIN-MAP/issues/82)) ([1880c3c](https://github.com/jalibu/MMM-RAIN-MAP/commit/1880c3cab22321ec5a2263831f931f6249058c81))
+* **tsconfig:** add types and include paths for TypeScript compilation ([2706524](https://github.com/jalibu/MMM-RAIN-MAP/commit/2706524b9c16bc127dcbbd18d7bb57f105e257a8))
+
+
+### Chores
+
+* fix format for module check ([4b1ed9b](https://github.com/jalibu/MMM-RAIN-MAP/commit/4b1ed9b83ed35394f3928efc6d1fe211db698437))
+* simplify prepare script ([f146cf5](https://github.com/jalibu/MMM-RAIN-MAP/commit/f146cf5672fc7ac89fa755441221c18f75d2fbc6))
+* update devDependencies ([838089a](https://github.com/jalibu/MMM-RAIN-MAP/commit/838089ab8224317fdb3e578166ea0eddfc2e41fd))
+
+
+### Code Refactoring
+
+* **build:** enhance TypeScript and Rollup config ([cd6115c](https://github.com/jalibu/MMM-RAIN-MAP/commit/cd6115cdfecbef7681de3ab4e5c8a0f7b65f35df))
+* **eslint:** improve configuration with global ignores and structured rules ([80c8f23](https://github.com/jalibu/MMM-RAIN-MAP/commit/80c8f23e5845d0f8ca7507ec367b25ac1b785977))
+
+
+### Build System
+
+* **tsconfig:** switch to ESNext bundler settings ([58f56db](https://github.com/jalibu/MMM-RAIN-MAP/commit/58f56db1096c49b9a0878db75995e0c63141fe70))
+
 ## [3.0.4](https://github.com/jalibu/MMM-RAIN-MAP/compare/v3.0.3...v3.0.4) (2026-03-08)
 
 
